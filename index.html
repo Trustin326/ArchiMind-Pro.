@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ArchiMind Pro™ — AI Powerhouse for Elite Home Architects</title>
+  <meta name="description" content="ArchiMind Pro — Next‑gen SaaS for premium residential architects. AI CAD, real‑time rendering, compliance checks, and client‑ready presentations." />
+  <style>
+    :root{
+      --ink:#0b1220;
+      --teal:#00bfa6;
+      --coral:#ff6b6b;
+      --gold:#f0b429;
+      --ink-2:#141a2b;
+      --ink-3:#20263b;
+      --bg:#0f1222;
+      --muted:#a7b1c2;
+      --card:#0e1325cc;
+      --white:#ffffff;
+      --gradient: radial-gradient(1200px 600px at 10% -10%, rgba(0,191,166,.28), transparent 50%),
+                  radial-gradient(1200px 800px at 90% 10%, rgba(255,107,107,.22), transparent 60%),
+                  linear-gradient(180deg, #0b1020, #0f152a);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      color:var(--white); background:var(--gradient) fixed;
+      line-height:1.4; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    a{color:inherit}
+    .container{max-width:1200px; margin:0 auto; padding:32px;}
+    header{position:sticky; top:0; backdrop-filter:saturate(160%) blur(10px); background:#0d1222bf; border-bottom:1px solid #ffffff1a; z-index:20}
+    nav{display:flex; gap:20px; align-items:center; justify-content:space-between}
+    .logo{font-weight:800; letter-spacing:.3px}
+    .logo b{color:var(--teal)}
+    .nav-links a{opacity:.85; text-decoration:none; padding:10px 12px; border-radius:12px}
+    .nav-links a:hover{background:#ffffff14}
+    .btn{display:inline-flex; align-items:center; gap:8px; padding:12px 18px; border-radius:14px; border:1px solid #ffffff24; text-decoration:none; font-weight:700; letter-spacing:.2px}
+    .btn.primary{background:linear-gradient(90deg, var(--teal), var(--gold)); color:#071316; border:none}
+    .btn.video{background:#ffffff14}
+    .hero{display:grid; grid-template-columns:1.2fr 1fr; gap:32px; align-items:center; padding:60px 0}
+    .badge{display:inline-flex; gap:8px; align-items:center; padding:6px 10px; border-radius:999px; background:#ffffff12; border:1px solid #ffffff24; font-size:12px; color:#d9e2f1}
+    h1{font-size:48px; line-height:1.05; margin:12px 0 18px}
+    .sub{color:#d1d8e6; max-width:56ch}
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:20px}
+    .arky-wrap{position:relative; height:380px; display:grid; place-items:center}
+    .arky-blob{position:absolute; inset:0; background:radial-gradient(50% 50% at 50% 50%, #23d7c3, transparent 70%), radial-gradient(35% 35% at 70% 20%, #ff8d6e, transparent 70%); filter:blur(40px); opacity:.5}
+    .arky{position:relative; width:85%; aspect-ratio:1/1.1; border-radius:28px; background:linear-gradient(145deg,#101733,#0c0f23); border:1px solid #ffffff1a; box-shadow:0 20px 60px #00000080; display:grid; grid-template-rows:auto 1fr auto; overflow:hidden}
+    .arky-head{display:flex; gap:12px; align-items:center; padding:14px 16px; background:linear-gradient(180deg,#12193a,#0d1225)}
+    .arky-chip{width:12px; height:12px; border-radius:50%; background:var(--teal); box-shadow:0 0 0 6px #00bfa622}
+    .arky-face{display:grid; place-items:center}
+    .arky-face svg{width:210px; max-width:80%}
+    .arky-note{font-size:12px; opacity:.8; text-align:center; padding:10px}
+
+    .section{padding:56px 0}
+    .section h2{font-size:28px; margin:0 0 8px}
+    .muted{color:var(--muted)}
+
+    .logos{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; opacity:.85}
+    .logo-tile{padding:14px 16px; background:#ffffff0f; border:1px solid #ffffff1a; border-radius:12px; text-align:center}
+
+    .tools-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px}
+    .tool{background:var(--card); border:1px solid #ffffff1a; border-radius:16px; padding:16px; display:grid; grid-template-columns:auto 1fr auto; gap:14px; align-items:center}
+    .tool .icon{width:42px; height:42px; border-radius:10px; display:grid; place-items:center; background:#ffffff10; border:1px solid #ffffff1a}
+    .tool h3{margin:0; font-size:16px}
+    .tool p{margin:2px 0 0; color:#cfd7e6; font-size:14px}
+    .tool a{font-size:13px; padding:8px 12px}
+
+    .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+    .card{background:var(--card); border:1px solid #ffffff1a; border-radius:18px; padding:20px}
+    .price{font-size:38px; font-weight:800; margin:8px 0 14px}
+    .pill{display:inline-block; padding:6px 10px; border-radius:999px; background:#ffffff14; border:1px solid #ffffff24; font-size:12px; margin-bottom:8px}
+
+    .demos{display:grid; grid-template-columns:1fr; gap:16px}
+    .demo{background:var(--card); border:1px solid #ffffff1a; border-radius:18px; padding:18px}
+    .demo h3{margin:0 0 8px}
+    .form-row{display:flex; gap:10px; flex-wrap:wrap; margin:8px 0}
+    input[type="text"], select, textarea{background:#0c1122; color:#e8eefc; border:1px solid #ffffff22; border-radius:12px; padding:10px 12px; width:100%}
+    textarea{min-height:88px}
+    .actions{display:flex; gap:10px; flex-wrap:wrap}
+    canvas, .preview{width:100%; background:#0c1122; border:1px dashed #ffffff28; border-radius:12px; min-height:160px; display:grid; place-items:center; color:#9fb0cf}
+
+    .stack{display:grid; grid-template-columns:repeat(4,1fr); gap:12px}
+    .stack .tile{background:#ffffff10; border:1px solid #ffffff1a; border-radius:14px; padding:14px; text-align:center}
+
+    footer{padding:40px 0 60px; color:#b9c4d9}
+    .code{background:#0b1022; color:#e8eefc; border:1px solid #ffffff26; border-radius:12px; padding:14px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size:13px; overflow:auto}
+
+    @media (max-width: 980px){
+      .hero{grid-template-columns:1fr}
+      .tools-grid{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
+      .stack{grid-template-columns:1fr 1fr}
+      .logos{grid-template-columns:1fr 1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">🌈 <b>ArchiMind</b> Pro™</div>
+        <div class="nav-links">
+          <a href="#tools">Tools</a>
+          <a href="#demos">Live Demos</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#stack">Tech</a>
+        </div>
+        <div>
+          <a class="btn video" href="#tour" id="openTour">📺 Watch Tour</a>
+          <a class="btn primary" href="#demos">✨ Try Live Demo</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="container hero">
+      <div>
+        <span class="badge">AI Design • Intelligent CAD • Real‑time Visualization</span>
+        <h1>Design. Visualize. Build. <span style="background:linear-gradient(90deg,var(--teal),var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent">Smarter.</span></h1>
+        <p class="sub">A next‑gen SaaS platform combining AI architecture design, intelligent CAD tools, and real‑time visualization — crafted for premium residential architects.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="#demos">🔹 Try Live Demo</a>
+          <a class="btn video" href="#tour" id="openTour2">🔹 Watch Product Tour (2 min)</a>
+        </div>
+      </div>
+      <div class="arky-wrap" aria-label="Pixar‑style AI character placeholder">
+        <div class="arky-blob" aria-hidden="true"></div>
+        <div class="arky">
+          <div class="arky-head"><div class="arky-chip"></div><strong>ARKY</strong> <span style="margin-left:auto; opacity:.7">AI Design Partner</span></div>
+          <div class="arky-face">
+            <!-- Simple friendly 3D-ish SVG avatar placeholder -->
+            <svg viewBox="0 0 240 260" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Arky placeholder">
+              <defs>
+                <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#1be9cf"/>
+                  <stop offset="1" stop-color="#f0b429"/>
+                </linearGradient>
+              </defs>
+              <ellipse cx="120" cy="120" rx="90" ry="100" fill="#1a2347" stroke="url(#g1)" stroke-width="6"/>
+              <circle cx="90" cy="110" r="10" fill="#fff"/>
+              <circle cx="150" cy="110" r="10" fill="#fff"/>
+              <path d="M90 160 Q120 182 150 160" stroke="#fff" stroke-width="6" stroke-linecap="round" fill="none"/>
+              <rect x="72" y="190" width="96" height="52" rx="12" fill="#111836" stroke="#3bd7c1"/>
+              <text x="120" y="222" text-anchor="middle" fill="#9fd8ff" font-size="12" font-family="inherit">Holographic Blueprint</text>
+            </svg>
+          </div>
+          <div class="arky-note">“Hi, I’m Arky! I’ll help you turn imagination into architectural perfection.”</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST -->
+    <section class="container section" aria-label="Trusted by">
+      <div class="muted" style="margin-bottom:10px">Trusted by visionary firms</div>
+      <div class="logos">
+        <div class="logo-tile">🏠 Atelier Luxe Homes</div>
+        <div class="logo-tile">🏗️ Paramount Design Group</div>
+        <div class="logo-tile">🌳 EcoForm Living</div>
+        <div class="logo-tile">🖋️ ModernHab Studio</div>
+      </div>
+    </section>
+
+    <!-- TOOLS -->
+    <section id="tools" class="container section">
+      <h2>🧠 10+ Built‑in AI Architecture & CAD Tools</h2>
+      <p class="muted">From concept to permit — all in one place.</p>
+      <div class="tools-grid" id="toolGrid"></div>
+    </section>
+
+    <!-- DEMOS -->
+    <section id="demos" class="container section">
+      <h2>🎥 Live Demos</h2>
+      <p class="muted">Try the magic directly in your browser. These demos simulate the experience without uploading any data.</p>
+      <div class="demos">
+        <!-- Demo 1 -->
+        <div class="demo" id="demo1">
+          <h3>Demo 1 — From Sketch to 3D in 60 Seconds</h3>
+          <p class="muted">Upload a quick sketch or choose a prompt — we’ll generate a stylized 3D preview.</p>
+          <div class="form-row">
+            <select id="sketchPrompt">
+              <option value="A modern 3‑bedroom villa with cantilevered second floor">Sample: Modern 3‑bedroom villa</option>
+              <option value="A compact eco‑cabin with full‑height glazing and green roof">Sample: Eco‑cabin with green roof</option>
+              <option value="A coastal craftsman home with wraparound porch">Sample: Coastal craftsman with porch</option>
+            </select>
+            <input type="file" id="sketchFile" accept="image/*" />
+          </div>
+          <div class="actions">
+            <button class="btn primary" id="runSketch">Generate Preview</button>
+            <a class="btn" href="#tools">Explore Tools</a>
+          </div>
+          <div style="margin-top:12px">
+            <canvas id="renderCanvas" height="240" aria-label="3D preview canvas"></canvas>
+          </div>
+        </div>
+
+        <!-- Demo 2 -->
+        <div class="demo" id="demo2">
+          <h3>Demo 2 — AI Material Selector in Action</h3>
+          <p class="muted">See how the platform intelligently swaps materials to improve sustainability and budget.</p>
+          <div class="form-row">
+            <select id="baseMaterial">
+              <option>Concrete</option>
+              <option>Brick</option>
+              <option>Timber</option>
+              <option>Steel</option>
+            </select>
+            <select id="goal">
+              <option value="eco">Eco‑friendly</option>
+              <option value="budget">Budget‑optimized</option>
+              <option value="premium">Premium finish</option>
+            </select>
+          </div>
+          <div class="actions">
+            <button class="btn primary" id="runMaterial">Suggest Materials</button>
+          </div>
+          <div class="preview" id="materialOut">Choose options and click Suggest.</div>
+        </div>
+
+        <!-- Demo 3 -->
+        <div class="demo" id="demo3">
+          <h3>Demo 3 — Collaborative Design Cloud</h3>
+          <p class="muted">Watch multiple architects iterate live in the same 3D workspace (simulated feed).</p>
+          <div class="form-row">
+            <input type="text" id="userA" placeholder="Architect A (e.g., Maya)" />
+            <input type="text" id="userB" placeholder="Architect B (e.g., Luca)" />
+          </div>
+          <div class="actions">
+            <button class="btn primary" id="runCollab">Start Live Session</button>
+          </div>
+          <div class="preview" id="collabFeed" aria-live="polite">Click Start to simulate a live edit feed…</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="container section">
+      <h2>Pricing Plans</h2>
+      <p class="muted">Scale with your studio. Switch or cancel anytime.</p>
+      <div class="cards">
+        <div class="card">
+          <span class="pill">Starter Architect</span>
+          <div class="price">$89<span style="font-size:16px">/mo</span></div>
+          <ul>
+            <li>5 Projects / month</li>
+            <li>Core AI Tools</li>
+            <li>Standard Render Quality</li>
+          </ul>
+          <div style="margin-top:14px"><a class="btn primary" href="#">Start Free Trial</a></div>
+        </div>
+        <div class="card" style="border-color:#ffd98e">
+          <span class="pill" style="background:linear-gradient(90deg,var(--teal),var(--gold)); color:#0c141a">Professional Studio</span>
+          <div class="price">$249<span style="font-size:16px">/mo</span></div>
+          <ul>
+            <li>20 Projects / month</li>
+            <li>Advanced AI CAD</li>
+            <li>4K Rendering</li>
+            <li>Team Collaboration</li>
+          </ul>
+          <div style="margin-top:14px"><a class="btn primary" href="#">Upgrade</a></div>
+        </div>
+        <div class="card">
+          <span class="pill">Elite Partner</span>
+          <div class="price">$599<span style="font-size:16px">/mo</span></div>
+          <ul>
+            <li>Unlimited Projects</li>
+            <li>Custom Branding</li>
+            <li>Dedicated AI Training</li>
+            <li>White‑Glove Support</li>
+          </ul>
+          <div style="margin-top:14px"><a class="btn primary" href="#">Talk to Sales</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STACK -->
+    <section id="stack" class="container section">
+      <h2>⚙️ Tech Stack (for Developers)</h2>
+      <p class="muted">Modern, scalable choices that play nicely with your pipeline.</p>
+      <div class="stack">
+        <div class="tile">Frontend: Next.js + Three.js + TailwindCSS</div>
+        <div class="tile">Backend: Python FastAPI + AWS Lambda</div>
+        <div class="tile">AI Models: StableCAD™ • GPT‑Architect™ • RenderNet™</div>
+        <div class="tile">DB & Files: PostgreSQL + S3</div>
+      </div>
+      <div class="stack" style="margin-top:12px">
+        <div class="tile">Integrations: Revit</div>
+        <div class="tile">Integrations: AutoCAD</div>
+        <div class="tile">Integrations: Rhino</div>
+        <div class="tile">Embed: <code>&lt;script src="/embed/archimind.js" defer&gt;&lt;/script&gt;</code></div>
+      </div>
+    </section>
+
+    <!-- EMBED SNIPPET -->
+    <section class="container section" aria-label="Embed">
+      <h2>🔗 Embed as a Widget</h2>
+      <p class="muted">Drop this on any page to mount the demo launcher.</p>
+      <pre class="code" aria-label="Embed code snippet"><code>&lt;div id="archimind-widget" data-theme="teal"&gt;&lt;/div&gt;
+&lt;script&gt;(function(){const w=document.getElementById('archimind-widget');if(!w)return;w.innerHTML='&lt;button style="padding:12px 18px;border-radius:12px;background:#00bfa6;border:none;font-weight:800" onclick="location.hash=\'#demos\'"&gt;Try ArchiMind Demo&lt;/button&gt;';})();&lt;/script&gt;</code></pre>
+    </section>
+
+  </main>
+
+  <footer class="container">
+    <div>© <span id="yr"></span> ArchiMind Pro™ — “Reimagine what a home can be — with AI that understands design.”</div>
+    <div class="muted" style="margin-top:6px">Palette: <b style="color:var(--teal)">Teal</b> • <b style="color:var(--coral)">Coral</b> • <b style="color:var(--gold)">Gold</b> • Ink</div>
+  </footer>
+
+  <!-- PRODUCT TOUR MODAL (lightweight) -->
+  <dialog id="tourModal" style="border:none; border-radius:16px; padding:0; max-width:820px; width:92%; background:#0f142a; color:#e9f0ff">
+    <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 16px; border-bottom:1px solid #ffffff1a">
+      <strong>ArchiMind — 2‑min Product Tour</strong>
+      <button id="closeTour" class="btn" style="background:#ffffff12">Close</button>
+    </div>
+    <div style="padding:16px">
+      <div class="preview" style="height:420px">Video placeholder — replace with your hosted MP4 or Loom embed.</div>
+    </div>
+  </dialog>
+
+  <script>
+    // Year
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Product tour modal
+    const tour = document.getElementById('tourModal');
+    const openTour = () => tour.showModal();
+    document.getElementById('openTour')?.addEventListener('click', e=>{e.preventDefault();openTour();});
+    document.getElementById('openTour2')?.addEventListener('click', e=>{e.preventDefault();openTour();});
+    document.getElementById('closeTour')?.addEventListener('click', ()=>tour.close());
+
+    // Tools list
+    const tools = [
+      {name:'AI Concept Generator', desc:'Generate stunning home design concepts from text prompts.', anchor:'#demo1'},
+      {name:'Smart Floor Plan Creator', desc:'Turn sketches or descriptions into editable CAD floor plans.', anchor:'#demo1'},
+      {name:'Material Optimizer', desc:'Suggest sustainable, cost‑effective material swaps.', anchor:'#demo2'},
+      {name:'AI Elevation Artist', desc:'Create realistic 3D exteriors in seconds.', anchor:'#demo1'},
+      {name:'Real‑time Rendering Engine', desc:'Instant cinematic renders with adjustable lighting.', anchor:'#demo1'},
+      {name:'Site Analysis Assistant', desc:'Use location, sun path & regs to optimize layouts.', anchor:'#demo1'},
+      {name:'Energy Efficiency Modeler', desc:'Auto‑calculate solar, wind & insulation performance.', anchor:'#demo2'},
+      {name:'Client Presentation Builder', desc:'Generate visual pitch decks from your iterables.', anchor:'#demo2'},
+      {name:'Permit & Code Checker', desc:'AI scans blueprints to flag compliance issues.', anchor:'#demo1'},
+      {name:'Collaborative Design Cloud', desc:'Real‑time multi‑user editing with version control.', anchor:'#demo3'}
+    ];
+    const grid = document.getElementById('toolGrid');
+    tools.forEach(t=>{
+      const el = document.createElement('div');
+      el.className = 'tool';
+      el.innerHTML = `
+        <div class="icon">🏗️</div>
+        <div>
+          <h3>${t.name}</h3>
+          <p>${t.desc}</p>
+        </div>
+        <a class="btn" href="${t.anchor}">Try Demo</a>
+      `;
+      grid.appendChild(el);
+    });
+
+    // Demo 1: Sketch to 3D (canvas render)
+    const canvas = document.getElementById('renderCanvas');
+    const ctx = canvas.getContext('2d');
+    function drawPreview(text){
+      const w = canvas.width, h = canvas.height;
+      ctx.clearRect(0,0,w,h);
+      // background gradient
+      const g = ctx.createLinearGradient(0,0,w,h);
+      g.addColorStop(0,'#10233f'); g.addColorStop(1,'#0a1428');
+      ctx.fillStyle = g; ctx.fillRect(0,0,w,h);
+      // building blocks
+      for(let i=0;i<6;i++){
+        const x = 20 + i*35 + Math.random()*8;
+        const y = 90 + Math.random()*60;
+        const bw = 28 + Math.random()*14;
+        const bh = 120 + Math.random()*80;
+        ctx.fillStyle = `rgba(0,191,166,${0.25+Math.random()*0.4})`;
+        ctx.fillRect(x, h-bh, bw, bh);
+        ctx.strokeStyle = 'rgba(240,180,41,.55)';
+        ctx.strokeRect(x, h-bh, bw, bh);
+      }
+      // label
+      ctx.fillStyle = '#cfe7ff';
+      ctx.font = '14px ui-sans-serif';
+      const lines = [
+        'AI 3D Preview',
+        text ? `• ${text}` : '• Sample: Modern 3‑bedroom villa'
+      ];
+      lines.forEach((ln,i)=>ctx.fillText(ln, 16, 24 + i*18));
+    }
+    drawPreview();
+
+    document.getElementById('runSketch').addEventListener('click', ()=>{
+      const prompt = document.getElementById('sketchPrompt').value;
+      drawPreview(prompt);
+      const file = document.getElementById('sketchFile').files?.[0];
+      if(file){
+        // Display a small thumbnail in the corner
+        const reader = new FileReader();
+        reader.onload = e=>{
+          const img = new Image();
+          img.onload = ()=>{
+            const thumbW = 120; const ratio = img.height/img.width; const thumbH = thumbW*ratio;
+            ctx.globalAlpha = .75; ctx.drawImage(img, canvas.width-thumbW-12, 12, thumbW, thumbH); ctx.globalAlpha = 1;
+          };
+          img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Demo 2: Material Selector
+    const materialData = {
+      Concrete:{eco:['Limecrete','Hempcrete'], budget:['Cinder block','Fiber‑cement'], premium:['Polished concrete','UHPC']},
+      Brick:{eco:['Reclaimed brick','Compressed earth blocks'], budget:['Hollow brick','Thin veneer'], premium:['Handmade brick','Glazed brick']},
+      Timber:{eco:['Cross‑laminated timber (CLT)','Bamboo composite'], budget:['Engineered lumber','Softwood'], premium:['Hardwood','Thermally modified wood']},
+      Steel:{eco:['Recycled steel','Weathering steel'], budget:['Light‑gauge steel','Hybrid frame'], premium:['Stainless steel','Architectural steel']}
+    };
+    function score(set){ // simple faux sustainability/budget score
+      const s = Math.floor(60 + Math.random()*40);
+      const b = Math.floor(60 + Math.random()*40);
+      return {s,b};
+    }
+    document.getElementById('runMaterial').addEventListener('click', ()=>{
+      const base = document.getElementById('baseMaterial').value;
+      const goal = document.getElementById('goal').value;
+      const picks = materialData[base][goal] || [];
+      const {s,b} = score(picks);
+      const out = `
+        <div style="padding:8px">Base: <b>${base}</b> → Goal: <b>${goal}</b></div>
+        <table style="width:100%; border-collapse:collapse">
+          <thead><tr style="background:#ffffff10"><th style="text-align:left;padding:8px">Recommendation</th><th style="text-align:left;padding:8px">Rationale</th></tr></thead>
+          <tbody>
+            ${picks.map(p=>`<tr><td style="padding:8px;border-top:1px solid #ffffff1a">${p}</td><td style="padding:8px;border-top:1px solid #ffffff1a">Improves lifecycle impact and cost alignment.</td></tr>`).join('')}
+          </tbody>
+        </table>
+        <div style="padding:10px 8px">Eco score: <b>${s}</b>/100 • Budget score: <b>${b}</b>/100</div>
+      `;
+      document.getElementById('materialOut').innerHTML = out;
+    });
+
+    // Demo 3: Collaborative Cloud (simulated feed)
+    document.getElementById('runCollab').addEventListener('click', ()=>{
+      const A = (document.getElementById('userA').value||'Maya').trim();
+      const B = (document.getElementById('userB').value||'Luca').trim();
+      const feed = document.getElementById('collabFeed');
+      feed.innerHTML = 'Connecting to session…';
+      const steps = [
+        `${A} added: Living room skylight +0.5m`,
+        `${B} adjusted: South facade shading fins`,
+        `${A} note: Switch kitchen to CLT core`,
+        `${B} pushed render: Sunset lighting preset`,
+        `${A} approved changes • New version: v12`
+      ];
+      let i=0; const id = setInterval(()=>{
+        feed.innerHTML = `<ul style="margin:8px 16px">${steps.slice(0,i+1).map(s=>`<li>🔵 ${s}</li>`).join('')}</ul>`;
+        i++; if(i>=steps.length){clearInterval(id); feed.innerHTML += '<div style="padding:8px">✅ Session synced. All edits saved to version control.</div>';}
+      }, 700);
+    });
+  </script>
+</body>
+</html>
